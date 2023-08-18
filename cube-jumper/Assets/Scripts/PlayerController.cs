@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour
         if (_jump)
         Jump();
         _jump = false;
-        MoveForward();
+         MoveForward();
         
     }
 
