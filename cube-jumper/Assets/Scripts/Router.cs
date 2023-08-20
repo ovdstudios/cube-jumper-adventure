@@ -6,7 +6,7 @@ public class Router : MonoBehaviour
 {
     PlayerController playerController;
     Rigidbody playerRb;
-    public float moveSpeed = -90;
+    public float counterMoveSpeed = -90;
     public float burstX = -1;
     Vector3 counterMoveDirection = new Vector3 (0,0,1);
     Vector3 boostX = new Vector3(.5f,0,0);
@@ -27,8 +27,8 @@ public class Router : MonoBehaviour
     {
         if(other.tag== "Player")
         {   
+            playerRb.AddForce(counterMoveDirection*counterMoveSpeed,ForceMode.Impulse);
             playerRb.AddForce(boostX*burstX,ForceMode.Impulse);
-            playerRb.AddForce(counterMoveDirection*moveSpeed,ForceMode.Impulse);
             playerController.MoveLeftward();
         }
     }
