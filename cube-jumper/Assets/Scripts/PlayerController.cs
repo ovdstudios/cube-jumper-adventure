@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
-
+using JetBrains.Annotations;
 using UnityEngine;
+using Dreamteck.Splines;
+
 
 public class PlayerController : MonoBehaviour
 {
@@ -13,8 +15,10 @@ public class PlayerController : MonoBehaviour
     public float gravity =-20;
     private GroundCheck groundCheck;
     Vector3 leftwards = new Vector3(-1,0,0);
-    Vector3 rightwards = new Vector3(1,0,0);
     public bool isMovingForward = true;
+    public float forceMagnitude = 10f;
+    
+    
     
     void Start()
     {
@@ -39,13 +43,10 @@ public class PlayerController : MonoBehaviour
         if (_jump)
         Jump();
         _jump = false;
-        if(isMovingForward)
-        {
-            MoveForward();
-        }else
-        {
-            MoveLeftward();
-        }
+       
+        
+ MoveForward();   
+    
     }
     
     private void OnTriggerEnter(Collider other) 
@@ -64,13 +65,9 @@ public class PlayerController : MonoBehaviour
     public void MoveForward()
     {
         Vector3 moveDirection = transform.forward;
-        rb.AddForce(moveDirection * moveSpeed);
-        rb.AddForce(-rb.velocity*rb.drag);
-
-        if(rb.velocity.magnitude > maxSpeed)
-        {
-            rb.velocity = rb.velocity.normalized*maxSpeed;
-        }
+        
+        rb.AddForce(moveDirection *forceMagnitude ,ForceMode.Force);
+        
     }
 
     public void MoveLeftward()
