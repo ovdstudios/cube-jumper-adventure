@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class CrashDetection : MonoBehaviour
 {
-    // Start is called before the first frame update
+   public WinLoseCondition winLoseCondition;
     void Start()
     {
         
@@ -21,6 +21,7 @@ public class CrashDetection : MonoBehaviour
   {
     if(other.collider.tag == "Player")
     {
+       winLoseCondition.LoseLevel();
         ReloadScene();
     }  
   }

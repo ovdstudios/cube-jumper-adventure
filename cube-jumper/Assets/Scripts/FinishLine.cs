@@ -6,11 +6,13 @@ using UnityEngine.SceneManagement;
 public class FinishLine : MonoBehaviour
 {
     CrashDetection reloadManager;
-
+    public WinLoseCondition winLoseCondition;
     // Start is called before the first frame update
     void Start()
     {
+       
         reloadManager = GameObject.FindGameObjectWithTag("Obstacle").GetComponent<CrashDetection>();
+      
        
     }
 
@@ -20,11 +22,13 @@ public class FinishLine : MonoBehaviour
         
     }
 
-     void OnTriggerEnter(Collider other) 
-    {
-        if(other.CompareTag("Player"))
+     private void OnTriggerEnter(Collider other) 
+     {
+        if(other.tag == "Player")
         {
             reloadManager.ReloadScene();
-        }   
-    }
+            winLoseCondition.WinLevel();   
+        }
+        
+     }
 }
