@@ -41,20 +41,12 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate() 
     {
         if (_jump)
-        Jump();
-        _jump = false;
-       
-        
- MoveForward();   
-    
-    }
-    
-    private void OnTriggerEnter(Collider other) 
-    {
-        if(other.tag == "Router")
         {
-            isMovingForward = false;
+            Jump();
         }
+        _jump = false;
+        MoveForward();   
+    
     }
 
     void Jump()
@@ -68,18 +60,5 @@ public class PlayerController : MonoBehaviour
         
         rb.AddForce(moveDirection *forceMagnitude ,ForceMode.Force);
         
-    }
-
-    public void MoveLeftward()
-    {
-        isMovingForward = false;
-        Vector3 moveDirection = leftwards;
-        rb.AddForce(moveDirection * moveSpeed);
-        rb.AddForce(-rb.velocity*rb.drag);
-
-        if(rb.velocity.magnitude > maxSpeed)
-        {
-            rb.velocity = rb.velocity.normalized*maxSpeed;
-        }
-    }
+    } 
 }
