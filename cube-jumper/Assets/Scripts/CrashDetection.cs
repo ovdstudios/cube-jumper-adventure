@@ -5,7 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class CrashDetection : MonoBehaviour
 {
-   public WinLoseCondition winLoseCondition;
+
+    public WinLoseCondition winLoseCondition;
+    
+    // Start is called before the first frame update
     void Start()
     {
         
@@ -17,16 +20,19 @@ public class CrashDetection : MonoBehaviour
         
     }
 
-  private void OnCollisionEnter(Collision other) 
-  {
-    if(other.collider.tag == "Player")
+    void OnCollisionEnter(Collision other) 
     {
-       winLoseCondition.LoseLevel();
+      
+      if(other.collider.tag == "Player")
+      {
+        winLoseCondition.LoseLevel();
         ReloadScene();
-    }  
-  }
-   public void ReloadScene()
-   {
-    SceneManager.LoadScene(0);
-   }
+        
+      }
+    }
+
+    public void ReloadScene()
+    {
+      SceneManager.LoadScene(0);
+    }
 }

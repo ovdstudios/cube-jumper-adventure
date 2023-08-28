@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Level01.unity
-    guid: 546697957c1d0fb40a49a85d30a615de
+    path: Assets/Scenes/CubeJumperFirst.unity
+    guid: b459760d0fe53f44784208925d6583dd
   m_configObjects: {}

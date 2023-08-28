@@ -26,9 +26,9 @@ public class FinishLine : MonoBehaviour
      {
         if(other.tag == "Player")
         {
+            winLoseCondition.WinLevel();
             reloadManager.ReloadScene();
-            winLoseCondition.WinLevel();   
+             
         }
-        
      }
 }

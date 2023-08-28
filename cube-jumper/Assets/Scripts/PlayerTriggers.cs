@@ -3,20 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerTriggers : MonoBehaviour
-{
+{  
     public WinLoseCondition winLoseCondition;
-    // Start is called before the first frame update
+    CrashDetection reloadManager;
+
     void Start()
     {
-        
+        reloadManager = GameObject.FindGameObjectWithTag("Obstacle").GetComponent<CrashDetection>();
     }
-
-    // Update is called once per frame
     void Update()
     {
-        if(transform.position.y < -10f)
+        if(transform.position.y < -15f)
         {
+           Invoke("InvokeReloadScene",.5f);
             winLoseCondition.LoseLevel();
         }
+    }
+
+    private void InvokeReloadScene()
+    {
+        reloadManager.ReloadScene();
     }
 }
