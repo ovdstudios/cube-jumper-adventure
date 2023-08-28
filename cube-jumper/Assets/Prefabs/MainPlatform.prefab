@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2266832208552219395}
   - component: {fileID: 6635926914679668180}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MainPlatform
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -53,8 +53,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 5.6321406, y: 11.532874, z: 11.879415}
-  m_Center: {x: 0.018930197, y: 0.11278486, z: -0.03199625}
+  m_Size: {x: 5.6321406, y: 11.491741, z: 11.879415}
+  m_Center: {x: 0.018930197, y: 0.0922184, z: -0.03199625}
 --- !u!1 &4695558025654975882
 GameObject:
   m_ObjectHideFlags: 0
@@ -66,7 +66,7 @@ GameObject:
   - component: {fileID: 8794171013121600692}
   - component: {fileID: 1978093076527963413}
   - component: {fileID: 6001618277473708148}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MainPlatform
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -149,7 +149,7 @@ GameObject:
   - component: {fileID: 4529101476949863260}
   - component: {fileID: 7134083881625174398}
   - component: {fileID: 1756770814578736023}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MainPlatformSides
   m_TagString: Untagged
   m_Icon: {fileID: 0}

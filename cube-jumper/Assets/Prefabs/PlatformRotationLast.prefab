@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2930763289436501898}
   - component: {fileID: 688919606806392398}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PlatformRotationLast
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -41,7 +41,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1485622363148461912}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 5a1e1c5dea4132a4e90172c7d85d9e0d, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -66,7 +66,7 @@ GameObject:
   - component: {fileID: 5029963025956220841}
   - component: {fileID: 11871913841936928}
   - component: {fileID: 8094106636394416240}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SidePlatformRotate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,9 +149,9 @@ GameObject:
   - component: {fileID: 8776522576279096965}
   - component: {fileID: 8052565680512287970}
   - component: {fileID: 7798813089725691057}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MainPlatformRotate
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

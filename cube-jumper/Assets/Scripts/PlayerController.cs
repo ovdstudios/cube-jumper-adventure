@@ -1,64 +1,64 @@
 using System.Collections;
 using System.Collections.Generic;
-using JetBrains.Annotations;
 using UnityEngine;
-using Dreamteck.Splines;
-
+using UnityEngine.TextCore.Text;
 
 public class PlayerController : MonoBehaviour
 {
-    private Rigidbody rb;
-    private bool _jump;
-    [SerializeField]private float jumpDistance = 5;
-    public float moveSpeed = 90;
-    public float maxSpeed = 5f;
-    public float gravity =-20;
-    private GroundCheck groundCheck;
-    Vector3 leftwards = new Vector3(-1,0,0);
-    public bool isMovingForward = true;
-    public float forceMagnitude = 10f;
+    [SerializeField] LayerMask groundLayers;
+    [SerializeField] private float moveSpeed = 10f;
+    [SerializeField]Transform groundCheck;
+    [SerializeField]private bool isGrounded;
+    [SerializeField]private float jumpHeight = 2f;
+    private float gravity = -50f;
+    private CharacterController characterController;
+    
+    private Vector3 velocity;
+    float horizontalInput;
+
     
     
-    
+
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
-        groundCheck = GetComponent<GroundCheck>();
-        Physics.gravity = new Vector3(0,gravity, 0);
+        characterController = GetComponent<CharacterController>();
     }
 
-   
+
+    //Ground Check
+    bool IsGrounded()
+    {
+        return Physics.CheckSphere(groundCheck.position, .1f,groundLayers);
+    }
+    // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space)&& groundCheck.isGrounded)
+        horizontalInput = 1;
+
+        //face forward
+        transform.forward = new Vector3(horizontalInput,0, Mathf.Abs(horizontalInput)-1);
+        
+
+        if(IsGrounded() && velocity.y < 0)
         {
-            _jump = true;
+            velocity.y = 0;
+        }
+        else 
+        {
+            //Add Gravity
+        velocity.y += gravity*Time.deltaTime;
         }
 
+        characterController.Move ( new Vector3(0,0,horizontalInput*moveSpeed)*Time.deltaTime);
+
+        if(IsGrounded()&& Input.GetButtonDown("Jump"))
+        {
+            velocity.y += Mathf.Sqrt(jumpHeight * -2 * gravity);
+        }
         
+        //Vertical Velocity
+        characterController.Move(velocity*Time.deltaTime);
     }
 
-    private void FixedUpdate() 
-    {
-        if (_jump)
-        {
-            Jump();
-        }
-        _jump = false;
-        MoveForward();   
     
-    }
-
-    void Jump()
-    {
-        rb.AddForce(Vector3.up*jumpDistance,ForceMode.Impulse);
-    }
-
-    public void MoveForward()
-    {
-        Vector3 moveDirection = transform.forward;
-        
-        rb.AddForce(moveDirection *forceMagnitude ,ForceMode.Force);
-        
-    } 
 }

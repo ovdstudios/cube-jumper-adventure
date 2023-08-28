@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5086493765752470535}
   m_Layer: 0
   m_Name: ObstacleCone (3)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 4696498407165876270}
   m_Layer: 0
   m_Name: ObstacleCone (1)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -179,7 +179,7 @@ GameObject:
   - component: {fileID: 4806403779241636148}
   m_Layer: 0
   m_Name: ObstacleCone (4)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -262,7 +262,7 @@ GameObject:
   - component: {fileID: 1925788438436949241}
   m_Layer: 0
   m_Name: ObstacleCone (2)
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -344,7 +344,7 @@ GameObject:
   - component: {fileID: 7209353315985733056}
   - component: {fileID: 2986760800786276247}
   - component: {fileID: 3989415527765321872}
-  - component: {fileID: 5870488991587756725}
+  - component: {fileID: 3522582289934778302}
   m_Layer: 0
   m_Name: ObstacleCone
   m_TagString: Obstacle
@@ -362,7 +362,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.7069834, y: 0, z: 0, w: 0.7072302}
   m_LocalPosition: {x: -107.40466, y: 49.82697, z: 26.171482}
-  m_LocalScale: {x: 48.22051, y: 48.22051, z: 48.22051}
+  m_LocalScale: {x: 48.334, y: 48.334, z: 48.334}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1877115934299385418}
@@ -442,7 +442,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.10228399, y: 0.021031082, z: 0.019999998}
   m_Center: {x: 0.00010314728, y: -0.00010307944, z: 0.000000032709018}
---- !u!114 &5870488991587756725
+--- !u!114 &3522582289934778302
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
