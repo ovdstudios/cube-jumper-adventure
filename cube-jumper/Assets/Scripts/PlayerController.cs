@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.TextCore.Text;
+using Dreamteck.Splines;
 
 public class PlayerController : MonoBehaviour
 {

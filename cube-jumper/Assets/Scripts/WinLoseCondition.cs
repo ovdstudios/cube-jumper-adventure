@@ -4,23 +4,22 @@ using UnityEngine;
 
 public class WinLoseCondition : MonoBehaviour
 {
-
     private bool gameEnded;
-  public void WinLevel()
-  {
-    if(!gameEnded)
+    public void WinLevel()
     {
-         Debug.Log("You Won!");
-         gameEnded = true;
+      if(!gameEnded)
+      {
+          Debug.Log("You Win!");
+          gameEnded = true;
+      }
     }
-  }
 
-  public void LoseLevel()
-  {
-    if(!gameEnded)
+    public void LoseLevel()
     {
-        Debug.Log("You lost...");
-        gameEnded = true;
+        if(!gameEnded)
+        {
+            Debug.Log("You Lose..");
+            gameEnded= true;
+        }
     }
-  }
 }
