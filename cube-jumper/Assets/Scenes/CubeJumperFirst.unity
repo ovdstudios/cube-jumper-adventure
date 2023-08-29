@@ -1860,9 +1860,9 @@ MonoBehaviour:
   groundLayers:
     serializedVersion: 2
     m_Bits: 64
-  moveSpeed: 30
+  moveSpeed: 20
   groundCheck: {fileID: 1943127761}
-  jumpHeight: 5
+  jumpHeight: 4
 --- !u!1001 &6932583347836787577
 PrefabInstance:
   m_ObjectHideFlags: 0
