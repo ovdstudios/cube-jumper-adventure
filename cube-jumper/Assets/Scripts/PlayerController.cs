@@ -14,17 +14,18 @@ public class PlayerController : MonoBehaviour
     private CharacterController characterController;
     
     private Vector3 velocity;
-    float horizontalInput;
+    
+    private bool negativeRotate90 = false;
+    
+    private bool rotated = false;
 
-    
-    
+
 
     void Start()
     {
         characterController = GetComponent<CharacterController>();
+        
     }
-
-
     //Ground Check
     bool IsGrounded()
     {
@@ -33,11 +34,17 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        horizontalInput = 1;
+
+        if(negativeRotate90&& !rotated)
+        {
+            transform.Rotate(Vector3.up,-90f);
+           rotated = true;
+        }
+        //horizontalInput = 1;
 
         //face forward
-        transform.forward = new Vector3(horizontalInput,0, Mathf.Abs(horizontalInput)-1);
-        
+        //transform.forward = new Vector3(horizontalInput,0, Mathf.Abs(horizontalInput)-1);
+    characterController.Move(transform.forward * moveSpeed * Time.deltaTime);
 
         if(IsGrounded() && velocity.y < 0)
         {
@@ -49,7 +56,7 @@ public class PlayerController : MonoBehaviour
         velocity.y += gravity*Time.deltaTime;
         }
 
-        characterController.Move ( new Vector3(0,0,horizontalInput*moveSpeed)*Time.deltaTime);
+        //characterController.Move ( new Vector3(0,0,horizontalInput*moveSpeed)*Time.deltaTime);
 
         if(IsGrounded()&& Input.GetButtonDown("Jump"))
         {
@@ -60,5 +67,22 @@ public class PlayerController : MonoBehaviour
         characterController.Move(velocity*Time.deltaTime);
     }
 
+    private void OnTriggerEnter(Collider other) 
+    {
+        if(other.CompareTag("Rotator1"))
+        {
+              
+              negativeRotate90 = true;
+              rotated = false;
+        }
+        /*if(other.CompareTag("Rotator2"))
+        {
+            negativeRotate90 = true;
+            rotated = false;
+        }
+        */
+    }
+
+    
     
 }
