@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float moveSpeed = 10f;
     [SerializeField]Transform groundCheck;
     [SerializeField]private float jumpHeight = 2f;
-    private float gravity = -50f;
+    private float gravity = -80f;
     private CharacterController characterController;
     
     private Vector3 velocity;
