@@ -1600,9 +1600,9 @@ GameObject:
   - component: {fileID: 4539702727702621058}
   - component: {fileID: 217294662}
   - component: {fileID: 5334037120024213343}
-  - component: {fileID: 5334037120024213342}
   - component: {fileID: 5334037120024213344}
   - component: {fileID: 5334037120024213345}
+  - component: {fileID: 5334037120024213346}
   m_Layer: 0
   m_Name: MainCharacter
   m_TagString: Player
@@ -1676,25 +1676,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 832149484847058729}
   m_Mesh: {fileID: -5495902117074765545, guid: c6bada4c78cb8e248ac8262453840c4c, type: 3}
---- !u!114 &5334037120024213342
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 832149484847058729}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc8b04e54291ddf4e88a945364545e88, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  groundLayers:
-    serializedVersion: 2
-    m_Bits: 64
-  moveSpeed: 20
-  groundCheck: {fileID: 1943127761}
-  isGrounded: 0
-  jumpHeight: 3
 --- !u!143 &5334037120024213343
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1761,6 +1742,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   winLoseCondition: {fileID: 1293437052}
+--- !u!114 &5334037120024213346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 832149484847058729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a163a48f53c7064428ee11dfb8d5d749, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpHeight: 5
+  jumpDuration: 0.5
+  groundLayers:
+    serializedVersion: 2
+    m_Bits: 64
+  groundCheck: {fileID: 0}
 --- !u!1001 &6932583347836787577
 PrefabInstance:
   m_ObjectHideFlags: 0
