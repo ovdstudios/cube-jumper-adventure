@@ -9,7 +9,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] LayerMask groundLayers;
     [SerializeField] private float moveSpeed = 10f;
     [SerializeField]Transform groundCheck;
-    [SerializeField]private bool isGrounded;
     [SerializeField]private float jumpHeight = 2f;
     private float gravity = -50f;
     private CharacterController characterController;
