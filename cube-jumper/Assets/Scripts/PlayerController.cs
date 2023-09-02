@@ -7,6 +7,7 @@ using UnityEngine.UIElements;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] ParticleSystem jumpParticle;
     [SerializeField] LayerMask groundLayers;
     [SerializeField] private float moveSpeed = 10f;
     [SerializeField]Transform groundCheck;
@@ -14,16 +15,9 @@ public class PlayerController : MonoBehaviour
     private float gravity = -80f;
     private CharacterController characterController;
     
+    private bool canRotate = true;
     private Vector3 velocity;
     
-    private bool negativeRotate90 = false;
-
-    private bool rotate90 = false;
-    
-    private bool rotated = false;
-
-
-
     void Start()
     {
         characterController = GetComponent<CharacterController>();
@@ -36,23 +30,8 @@ public class PlayerController : MonoBehaviour
     }
     // Update is called once per frame
     void Update()
-    {
-
-        if(negativeRotate90&& !rotated)
-        {
-            transform.Rotate(Vector3.up,-90f);
-           rotated = true;
-        }
-        else if (rotate90 && !rotated)
-        {
-            transform.Rotate(Vector3.up, 90);
-            rotated  =  true;
-            
-        }
+    {   
         
-        //horizontalInput = 1;
-
-        //face forward
         //transform.forward = new Vector3(horizontalInput,0, Mathf.Abs(horizontalInput)-1);
     characterController.Move(transform.forward * moveSpeed * Time.deltaTime);
 
@@ -70,6 +49,7 @@ public class PlayerController : MonoBehaviour
 
         if(IsGrounded()&& Input.GetButtonDown("Jump"))
         {
+            CreateParticle();
             velocity.y += Mathf.Sqrt(jumpHeight * -2 * gravity);
         }
         
@@ -79,19 +59,35 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) 
     {
-        if(other.CompareTag("Rotator1"))
+      
+      
+        if(other.CompareTag("Rotator1") && canRotate)
         {
               
-              negativeRotate90 = true;
-              rotated = false;
+             transform.Rotate(Vector3.up,-90f);
+             canRotate = false; 
+
+             StartCoroutine(EnableRotationAfterDelay(.4f));
         }
-        else if (other.CompareTag ("Rotator2"))
+
+        if(other.CompareTag("Rotator2") && canRotate)
         {
-            rotate90 = true;
-            rotated = false;
+            transform.Rotate(Vector3.up,90f);
+            canRotate = false;
+            StartCoroutine(EnableRotationAfterDelay(.4f));
         }
+
     }
 
-    
-    
+    void CreateParticle()
+    {
+        jumpParticle.Play();
+    }
+  
+    private IEnumerator EnableRotationAfterDelay (float delay)
+    {
+        yield return new WaitForSeconds (delay);
+
+        canRotate = true;
+    }
 }
