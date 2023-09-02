@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.TextCore.Text;
 using Dreamteck.Splines;
+using UnityEngine.UIElements;
 
 public class PlayerController : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class PlayerController : MonoBehaviour
     private Vector3 velocity;
     
     private bool negativeRotate90 = false;
+
+    private bool rotate90 = false;
     
     private bool rotated = false;
 
@@ -40,6 +43,13 @@ public class PlayerController : MonoBehaviour
             transform.Rotate(Vector3.up,-90f);
            rotated = true;
         }
+        else if (rotate90 && !rotated)
+        {
+            transform.Rotate(Vector3.up, 90);
+            rotated  =  true;
+            
+        }
+        
         //horizontalInput = 1;
 
         //face forward
@@ -75,12 +85,11 @@ public class PlayerController : MonoBehaviour
               negativeRotate90 = true;
               rotated = false;
         }
-        /*if(other.CompareTag("Rotator2"))
+        else if (other.CompareTag ("Rotator2"))
         {
-            negativeRotate90 = true;
+            rotate90 = true;
             rotated = false;
         }
-        */
     }
 
     
