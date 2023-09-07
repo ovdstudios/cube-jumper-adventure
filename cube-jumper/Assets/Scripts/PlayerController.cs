@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField]private float jumpHeight = 2f;
     private float gravity = -80f;
     private CharacterController characterController;
+
+    public AudioSource jumpSound;
     
     private bool canRotate = true;
     private Vector3 velocity;
@@ -46,9 +48,10 @@ public class PlayerController : MonoBehaviour
         }
 
         //characterController.Move ( new Vector3(0,0,horizontalInput*moveSpeed)*Time.deltaTime);
-
+        //THIS HERE IS JUMP!!!!!
         if(IsGrounded()&& Input.GetButtonDown("Jump"))
         {
+            jumpSound.Play();
             CreateParticle();
             velocity.y += Mathf.Sqrt(jumpHeight * -2 * gravity);
         }
