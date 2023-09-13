@@ -34,7 +34,8 @@ public class PlayerController : MonoBehaviour
     void Update()
     {   
         
-        //transform.forward = new Vector3(horizontalInput,0, Mathf.Abs(horizontalInput)-1);
+     //transform.forward = new Vector3(horizontalInput,0, Mathf.Abs(horizontalInput)-1);
+     //MOVE
     characterController.Move(transform.forward * moveSpeed * Time.deltaTime);
 
         if(IsGrounded() && velocity.y < 0)
