@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.TextCore.Text;
-using Dreamteck.Splines;
 using UnityEngine.UIElements;
 
 public class PlayerController : MonoBehaviour
