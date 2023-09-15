@@ -8,7 +8,7 @@ using UnityEngine.EventSystems;
 public class TextMaterialChange : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
 
-[SerializeField] private Material hoverMaterial;
+    [SerializeField] private Material hoverMaterial;
     [SerializeField] private Material originalMaterial;
     private TextMeshProUGUI textMeshPro;
     // Start is called before the first frame update
