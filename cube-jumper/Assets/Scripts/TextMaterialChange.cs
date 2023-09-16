@@ -1,41 +1,59 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 using UnityEngine.EventSystems;
+using System.Collections;
 
-public class TextMaterialChange : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class TextGlowOnHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-
-    [SerializeField] private Material hoverMaterial;
-    [SerializeField] private Material originalMaterial;
     private TextMeshProUGUI textMeshPro;
-    // Start is called before the first frame update
+    private float targetGlowPower = 1f;
+    private float currentGlowPower = 0f;
+    [SerializeField]private float transitionDuration = .5f; // Adjust this value for the duration of the transition.
+    private Coroutine glowCoroutine;
+    private Material textMaterial; // Cache the material.
+
     void Start()
     {
         textMeshPro = GetComponent<TextMeshProUGUI>();
 
-        originalMaterial = textMeshPro.fontMaterial;
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        // Cache the material to avoid stuttering on first access.
+        textMaterial = textMeshPro.materialForRendering;
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
+        if (glowCoroutine != null)
+        {
+            StopCoroutine(glowCoroutine);
+        }
 
-        textMeshPro.fontMaterial = hoverMaterial;
+        glowCoroutine = StartCoroutine(ChangeGlowPowerOverTime(targetGlowPower, transitionDuration));
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
+        if (glowCoroutine != null)
+        {
+            StopCoroutine(glowCoroutine);
+        }
 
-        textMeshPro.fontMaterial = originalMaterial;
+        glowCoroutine = StartCoroutine(ChangeGlowPowerOverTime(0f, transitionDuration));
     }
 
+    private IEnumerator ChangeGlowPowerOverTime(float targetValue, float duration)
+    {
+        float elapsedTime = 0f;
+        float startValue = currentGlowPower;
+
+        while (elapsedTime < duration)
+        {
+            currentGlowPower = Mathf.Lerp(startValue, targetValue, elapsedTime / duration);
+            textMaterial.SetFloat(ShaderUtilities.ID_GlowPower, currentGlowPower);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        currentGlowPower = targetValue;
+        textMaterial.SetFloat(ShaderUtilities.ID_GlowPower, currentGlowPower);
+    }
 }
