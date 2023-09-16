@@ -1044,8 +1044,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef820e2f34f2ad348b0c0e2d98b2201e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverMaterial: {fileID: 2100000, guid: e9889ef8b754fea4a904da66a6504dbc, type: 2}
-  originalMaterial: {fileID: 2100000, guid: d0ca803b0781ba14bab7925fe64cf309, type: 2}
+  transitionDuration: 0.1
 --- !u!1 &399104711
 GameObject:
   m_ObjectHideFlags: 0
@@ -1707,8 +1706,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef820e2f34f2ad348b0c0e2d98b2201e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverMaterial: {fileID: 2100000, guid: 6fb93ead9de7da94d9d3cfa9bfb6a06b, type: 2}
-  originalMaterial: {fileID: 2100000, guid: 7d321d21e39b68140856b10771d658d2, type: 2}
+  transitionDuration: 0.1
 --- !u!1 &555381376
 GameObject:
   m_ObjectHideFlags: 0
@@ -9017,8 +9015,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef820e2f34f2ad348b0c0e2d98b2201e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverMaterial: {fileID: 2100000, guid: a6db79c8b61a6eb4d89164281e6eb438, type: 2}
-  originalMaterial: {fileID: 2100000, guid: 45993aa22494f244b8d08cbcf7ef222e, type: 2}
+  transitionDuration: 0.1
 --- !u!1 &1895039079
 GameObject:
   m_ObjectHideFlags: 0
@@ -9377,8 +9374,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef820e2f34f2ad348b0c0e2d98b2201e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverMaterial: {fileID: 2100000, guid: a43be2eb7e725d44bbb1e1bdd4f169d7, type: 2}
-  originalMaterial: {fileID: 2100000, guid: d1716e83bb4f9484b90516367d861af0, type: 2}
+  transitionDuration: 0.1
 --- !u!1 &2039540886
 GameObject:
   m_ObjectHideFlags: 0
