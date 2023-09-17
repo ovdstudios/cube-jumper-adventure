@@ -124,7 +124,7 @@ Material:
     - _MinLight: 0.35
     - _Mode: 0
     - _OcclusionStrength: 1
-    - _Offset: 0
+    - _Offset: -0.02
     - _Parallax: 0.02
     - _QueueOffset: 0
     - _ReceiveShadows: 1
@@ -139,7 +139,7 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
-    - _Steps: 3
+    - _Steps: 7
     - _StpSmooth: 0
     - _SunDiscExponent: 125000
     - _SunDiscMultiplier: 25
@@ -151,10 +151,10 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 0.9150943, g: 0.17274396, b: 0.14244394, a: 1}
-    - _Color: {r: 0.8018868, g: 0.16541097, b: 0.13995194, a: 1}
+    - _Color: {r: 0.9716981, g: 0.96455854, b: 0.8479441, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _HorizonLineColor: {r: 0.9044118, g: 0.8872592, b: 0.7913603, a: 1}
-    - _ShnColor: {r: 1, g: 1, b: 0, a: 1}
+    - _ShnColor: {r: 0.9528302, g: 0.038087983, b: 0, a: 1}
     - _SkyGradientBottom: {r: 0.764706, g: 0.8156863, b: 0.8509805, a: 1}
     - _SkyGradientTop: {r: 0.172549, g: 0.5686274, b: 0.6941177, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
