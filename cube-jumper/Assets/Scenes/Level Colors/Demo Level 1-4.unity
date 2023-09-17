@@ -1821,6 +1821,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 500732656576375286, guid: 27bff4cfceec48e42b2ed98af84cf5d6, type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[2].time
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 500732656576375286, guid: 27bff4cfceec48e42b2ed98af84cf5d6, type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[2].value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 500732656576375286, guid: 27bff4cfceec48e42b2ed98af84cf5d6, type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].inSlope
+      value: -0.15384571
+      objectReference: {fileID: 0}
+    - target: {fileID: 500732656576375286, guid: 27bff4cfceec48e42b2ed98af84cf5d6, type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[2].inSlope
+      value: -0.2307623
+      objectReference: {fileID: 0}
+    - target: {fileID: 500732656576375286, guid: 27bff4cfceec48e42b2ed98af84cf5d6, type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].outSlope
+      value: -0.15384571
+      objectReference: {fileID: 0}
+    - target: {fileID: 500732656576375286, guid: 27bff4cfceec48e42b2ed98af84cf5d6, type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[2].outSlope
+      value: -0.2307623
+      objectReference: {fileID: 0}
     - target: {fileID: 3792489201251930869, guid: 27bff4cfceec48e42b2ed98af84cf5d6, type: 3}
       propertyPath: m_Name
       value: World Particle
@@ -3625,6 +3649,7 @@ SceneRoots:
   - {fileID: 705507995}
   - {fileID: 1454043257}
   - {fileID: 1914482395}
+  - {fileID: 1225506766}
   - {fileID: 2077439656}
   - {fileID: 967835815}
   - {fileID: 1653478259}
@@ -3633,4 +3658,3 @@ SceneRoots:
   - {fileID: 2143621958}
   - {fileID: 1406238438}
   - {fileID: 562907375}
-  - {fileID: 1225506766}
