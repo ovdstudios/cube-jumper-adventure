@@ -5,15 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class FinishLine : MonoBehaviour
 {
-    CrashDetection reloadManager;
     public WinLoseCondition winLoseCondition;
     // Start is called before the first frame update
     void Start()
-    {
-       
-        reloadManager = GameObject.FindGameObjectWithTag("Obstacle").GetComponent<CrashDetection>();
-      
-       
+    {       
+            
     }
 
     // Update is called once per frame
@@ -27,8 +23,7 @@ public class FinishLine : MonoBehaviour
         if(other.tag == "Player")
         {
             winLoseCondition.WinLevel();
-            reloadManager.ReloadScene();
-             
+            //reloadManager.ReloadScene();  
         }
      }
 }

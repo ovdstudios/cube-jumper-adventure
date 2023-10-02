@@ -1,27 +1,34 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerTriggers : MonoBehaviour
-{  
+{
     public WinLoseCondition winLoseCondition;
-    CrashDetection reloadManager;
+   
 
     void Start()
     {
-        reloadManager = GameObject.FindGameObjectWithTag("Obstacle").GetComponent<CrashDetection>();
+        
     }
     void Update()
     {
-        if(transform.position.y < -15f)
-        {
-           Invoke("InvokeReloadScene",.5f);
-            winLoseCondition.LoseLevel();
-        }
+               
     }
 
-    private void InvokeReloadScene()
+    private void OnTriggerEnter(Collider other)
     {
-        reloadManager.ReloadScene();
+        if ( other.CompareTag("BaseFailGround"))         
+           {
+             winLoseCondition.LoseLevel();
+             winLoseCondition.ReloadManager(0);
+           }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.collider.CompareTag("Obstacle"))
+        {
+            winLoseCondition.LoseLevel();
+            winLoseCondition.ReloadManager(0);
+        }
     }
 }
