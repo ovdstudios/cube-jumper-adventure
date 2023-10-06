@@ -9,7 +9,10 @@ public class PlayerPhysicsController : MonoBehaviour
     [SerializeField] private float _moveSpeed;
     [SerializeField] LayerMask _groundLayer;
     [SerializeField] Transform _groundCheck;
+    [SerializeField] ParticleSystem _jumpParticle;
+    [SerializeField] AudioSource _jumpSound;
     private bool canJump;
+
 
     // Start is called before the first frame update
     void Start()
@@ -42,6 +45,8 @@ public class PlayerPhysicsController : MonoBehaviour
     private void Jump()
     {   
         {
+            _jumpSound.Play();
+            CreateJumpParticle();
             _rb.AddForce(transform.up * _jumpForce, ForceMode.Impulse);
         }
 
@@ -68,5 +73,9 @@ public class PlayerPhysicsController : MonoBehaviour
         Gizmos.DrawSphere(_groundCheck.position, .002f);
     }
     
+    private void CreateJumpParticle()
+    {
+        _jumpParticle.Play();
+    }
 
 }
