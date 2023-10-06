@@ -8,16 +8,17 @@ public class TextGlowOnHover : MonoBehaviour, IPointerEnterHandler, IPointerExit
     private TextMeshProUGUI textMeshPro;
     private float targetGlowPower = 1f;
     private float currentGlowPower = 0f;
-    [SerializeField]private float transitionDuration = .5f; // Adjust this value for the duration of the transition.
-    private Coroutine glowCoroutine;
-    private Material textMaterial; // Cache the material.
+    [SerializeField]private float transitionDuration = .5f;
+    public Coroutine glowCoroutine;
+    private Material textMaterial; 
 
     void Start()
     {
         textMeshPro = GetComponent<TextMeshProUGUI>();
 
-        // Cache the material to avoid stuttering on first access.
+        
         textMaterial = textMeshPro.materialForRendering;
+        
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -38,6 +39,7 @@ public class TextGlowOnHover : MonoBehaviour, IPointerEnterHandler, IPointerExit
         }
 
         glowCoroutine = StartCoroutine(ChangeGlowPowerOverTime(0f, transitionDuration));
+
     }
 
     private IEnumerator ChangeGlowPowerOverTime(float targetValue, float duration)
@@ -55,5 +57,18 @@ public class TextGlowOnHover : MonoBehaviour, IPointerEnterHandler, IPointerExit
 
         currentGlowPower = targetValue;
         textMaterial.SetFloat(ShaderUtilities.ID_GlowPower, currentGlowPower);
+    }
+    //the object is disabled some way rather than destroyed when you press play.
+    //Disabled objects stop all coroutines, so it doesn't finish its fade thing. You should probably 
+    //have an OnDisable that instantly resets the glow back to normal with no timer
+    private void OnDisable()
+    {
+        if(glowCoroutine != null)
+        {
+            StopCoroutine(glowCoroutine );
+
+            currentGlowPower = 0f;
+            textMaterial.SetFloat(ShaderUtilities.ID_GlowPower, currentGlowPower);
+        }
     }
 }
