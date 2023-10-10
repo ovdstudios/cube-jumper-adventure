@@ -1,10 +1,11 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerTriggers : MonoBehaviour
 {
     public WinLoseCondition winLoseCondition;
-   
-
+    public GameOverScreen gameOverScreen;
     void Start()
     {
         
@@ -16,10 +17,10 @@ public class PlayerTriggers : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if ( other.CompareTag("BaseFailGround"))         
-           {
-             winLoseCondition.LoseLevel();
-             winLoseCondition.ReloadManager(0);
+        if ( other.CompareTag("BaseFailGround"))
+        {
+            winLoseCondition.LoseLevel();
+            
            }
     }
 
@@ -28,7 +29,7 @@ public class PlayerTriggers : MonoBehaviour
         if(collision.collider.CompareTag("Obstacle"))
         {
             winLoseCondition.LoseLevel();
-            winLoseCondition.ReloadManager(0);
+ 
         }
     }
 }
