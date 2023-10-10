@@ -12,6 +12,7 @@ public class PlayerPhysicsController : MonoBehaviour
     [SerializeField] ParticleSystem _jumpParticle;
     [SerializeField] AudioSource _jumpSound;
     private bool canJump;
+    public bool isDead = false;
 
 
     // Start is called before the first frame update
@@ -33,12 +34,15 @@ public class PlayerPhysicsController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Move();
-        if (canJump)
+        if (isDead == false)
         {
-            Jump();
-            //set it to false after jump because we dont wanna go flying upwards.
-            canJump = false;
+            Move();
+            if (canJump)
+            {
+                Jump();
+                //set it to false after jump because we dont wanna go flying upwards.
+                canJump = false;
+            }
         }
     }
 
