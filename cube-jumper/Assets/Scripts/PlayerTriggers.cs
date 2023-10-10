@@ -6,9 +6,10 @@ public class PlayerTriggers : MonoBehaviour
 {
     public WinLoseCondition winLoseCondition;
     public GameOverScreen gameOverScreen;
+    private PlayerPhysicsController physicsController;
     void Start()
     {
-        
+        physicsController =GetComponent<PlayerPhysicsController>();
     }
     void Update()
     {
@@ -20,7 +21,7 @@ public class PlayerTriggers : MonoBehaviour
         if ( other.CompareTag("BaseFailGround"))
         {
             winLoseCondition.LoseLevel();
-            
+            physicsController.isDead = true;
            }
     }
 
@@ -29,7 +30,7 @@ public class PlayerTriggers : MonoBehaviour
         if(collision.collider.CompareTag("Obstacle"))
         {
             winLoseCondition.LoseLevel();
- 
+            physicsController.isDead = true;
         }
     }
 }
