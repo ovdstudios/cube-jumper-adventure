@@ -5,6 +5,7 @@ using UnityEngine;
 public class Rotator : MonoBehaviour
 {
     Rigidbody _rb;
+    
     [SerializeField] private bool canRotate = true;
     Quaternion diff = Quaternion.identity;
     // Start is called before the first frame update
@@ -21,19 +22,32 @@ public class Rotator : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("RotatorLeft")&& canRotate)
+        if (other.CompareTag("RotatorLeft") && canRotate)
         {
+            Debug.Log("Left Trigger");
             diff = Quaternion.Euler(0, -90, 0);
             canRotate = false;
             StartCoroutine(EnableRotationAfterDelay(.4f));
         }
-
-        if (other.CompareTag("RotatorRight")&& canRotate)
+        else if (other.CompareTag("RotatorRight") && canRotate)
         {
-            diff = Quaternion.Euler(0, 90, 0);
-            canRotate = false;
-            StartCoroutine(EnableRotationAfterDelay(.4f));
+
+
+            {
+                Debug.Log("Right Trigger");
+                diff = Quaternion.Euler(0, 90, 0);
+                canRotate = false;
+                StartCoroutine(EnableRotationAfterDelay(.4f));
+            }
         }
+        else 
+        {
+         
+            return;
+        
+        }
+
+
         _rb.rotation *= diff;
         _rb.velocity = diff * _rb.velocity;
     }

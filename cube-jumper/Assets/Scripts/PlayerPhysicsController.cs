@@ -12,19 +12,20 @@ public class PlayerPhysicsController : MonoBehaviour
     [SerializeField] ParticleSystem _jumpParticle;
     [SerializeField] AudioSource _jumpSound;
     private bool canJump;
-    public bool isDead = false;
+    PlayerTriggers playerTrigger;
 
 
     // Start is called before the first frame update
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
+        playerTrigger = GetComponent<PlayerTriggers>();
     }
 
     // Update is called once per frame
     void Update()
     {
-
+     
         if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
         {
             canJump = true;
@@ -34,9 +35,11 @@ public class PlayerPhysicsController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (isDead == false)
+        if (!playerTrigger.isDead)
         {
+            Debug.Log("Is not dead");
             Move();
+
             if (canJump)
             {
                 Jump();
@@ -44,6 +47,12 @@ public class PlayerPhysicsController : MonoBehaviour
                 canJump = false;
             }
         }
+        else
+        {
+            Debug.Log("Is Dead");
+            _rb.velocity = Vector3.zero;
+        }
+
     }
 
     private void Jump()
