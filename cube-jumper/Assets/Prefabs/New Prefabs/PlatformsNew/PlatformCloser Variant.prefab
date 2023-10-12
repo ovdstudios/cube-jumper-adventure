@@ -10,31 +10,31 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 6cc412b1a520d9547ba1434bea5bc207, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.853
+      value: -0.038260236
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6cc412b1a520d9547ba1434bea5bc207, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.6718478
+      value: 2.3468478
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6cc412b1a520d9547ba1434bea5bc207, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.019217134
+      value: 0.34033805
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6cc412b1a520d9547ba1434bea5bc207, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.00000058114523
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6cc412b1a520d9547ba1434bea5bc207, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.000000081460335
+      value: -4.7340285e-14
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6cc412b1a520d9547ba1434bea5bc207, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6cc412b1a520d9547ba1434bea5bc207, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0.000000081460335
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6cc412b1a520d9547ba1434bea5bc207, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -96,5 +96,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.100000024, y: 0.7286258, z: 0.029107837}
-  m_Center: {x: -0.00078777596, y: -0.2462101, z: 0.0014659734}
+  m_Size: {x: 0.100000024, y: 0.6700641, z: 0.029107837}
+  m_Center: {x: -0.00078777596, y: -0.21541983, z: 0.0014659734}
