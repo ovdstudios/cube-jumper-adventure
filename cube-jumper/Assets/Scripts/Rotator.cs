@@ -1,11 +1,10 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Rotator : MonoBehaviour
 {
     Rigidbody _rb;
-    
+
     [SerializeField] private bool canRotate = true;
     Quaternion diff = Quaternion.identity;
     // Start is called before the first frame update
@@ -40,11 +39,11 @@ public class Rotator : MonoBehaviour
                 StartCoroutine(EnableRotationAfterDelay(.4f));
             }
         }
-        else 
+        else
         {
-         
+
             return;
-        
+
         }
 
 
@@ -56,6 +55,6 @@ public class Rotator : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         canRotate = true;
-        
+
     }
 }
