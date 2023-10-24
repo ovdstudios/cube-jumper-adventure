@@ -18,6 +18,11 @@ public class PlayerController : MonoBehaviour
     
     private bool canRotate = true;
     private Vector3 velocity;
+
+    void Awake()
+    {
+        
+    }
     
     void Start()
     {

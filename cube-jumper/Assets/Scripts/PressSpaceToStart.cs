@@ -4,7 +4,8 @@ public class PressSpaceToStart : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject spaceToStartUI;
-    public bool isPaused;
+    
+    public bool isPaused;    
 
     private void Awake()
     {
