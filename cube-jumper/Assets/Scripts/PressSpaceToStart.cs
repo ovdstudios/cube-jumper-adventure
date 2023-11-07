@@ -4,13 +4,12 @@ public class PressSpaceToStart : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject spaceToStartUI;
-    
-    public bool isPaused;    
+
+    public bool isPaused;
 
     private void Awake()
     {
         spaceToStartUI.SetActive(true);
-        Time.timeScale = 0f;
         isPaused = true;
     }
     void Start()
@@ -30,9 +29,8 @@ public class PressSpaceToStart : MonoBehaviour
     {
         if (isPaused && Input.GetKeyDown(KeyCode.Space))
         {
-            Time.timeScale = 1.0f;
-            isPaused = false;
             spaceToStartUI.SetActive(false);
+            isPaused = false;
         }
         else
         {

@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerPhysicsController : MonoBehaviour
 {
@@ -9,18 +9,25 @@ public class PlayerPhysicsController : MonoBehaviour
     [SerializeField] Transform _groundCheck;
     [SerializeField] ParticleSystem _jumpParticle;
     [SerializeField] AudioSource _jumpSound;
-    [SerializeField] private float _gravity = -5;
-    [SerializeField] private float airMoveSpeed = 10;
+    //[SerializeField] private float airMoveSpeed = 10;
+    private bool allowLeap;
     private bool canJump;
     PlayerTriggers playerTrigger;
+    PressSpaceToStart spaceToStart;
 
 
+    private void Awake()
+    {
+        spaceToStart = GameObject.Find("GameController").GetComponent<PressSpaceToStart>();
+        _rb = GetComponent<Rigidbody>();
+        playerTrigger = GetComponent<PlayerTriggers>();
+
+    }
     // Start is called before the first frame update
     void Start()
     {
 
-        _rb = GetComponent<Rigidbody>();
-        playerTrigger = GetComponent<PlayerTriggers>();
+
     }
 
     // Update is called once per frame
@@ -32,10 +39,6 @@ public class PlayerPhysicsController : MonoBehaviour
             canJump = true;
         }
 
-    }
-
-    private void FixedUpdate()
-    {
         if (!playerTrigger.isDead)
         {
             Debug.Log("Is not dead");
@@ -48,15 +51,20 @@ public class PlayerPhysicsController : MonoBehaviour
                 canJump = false;
             }
 
-            if (IsGrounded())
+            //if (IsGrounded())
+            //{
+
+            //    Move();
+            //}
+            if (_rb.velocity.y > 0)
             {
-                Move();
+                _rb.velocity += Vector3.up * Physics.gravity.y * (3 - 1) * Time.deltaTime;
             }
-            else if (!IsGrounded())
-            {
-                //belki force mode impulse deneyebiliriz.
-                Leap();
-            }
+            //else if (!IsGrounded())
+            //{
+
+            //    //Leap();
+            //}
 
         }
         else
@@ -65,7 +73,28 @@ public class PlayerPhysicsController : MonoBehaviour
             _rb.velocity = Vector3.zero;
         }
 
+        //if (spaceToStart.isPaused)
+        //{
+        //    _rb.velocity = Vector3.zero;
+        //    if (IsGrounded())
+        //    {
+        //        float currentXVelocity = _rb.velocity.x;
+        //        Vector3 newVelocity = transform.up * _jumpForce;
+        //        newVelocity.x = currentXVelocity;
+        //        _rb.velocity = newVelocity;
+        //        canJump = false;
+        //        allowLeap = false;
+        //    }
 
+        //}
+        //else
+        //{
+        //    return;
+        //}
+    }
+
+    private void FixedUpdate()
+    {
 
 
     }
@@ -75,25 +104,39 @@ public class PlayerPhysicsController : MonoBehaviour
         {
             _jumpSound.Play();
             CreateJumpParticle();
-            _rb.AddForce(transform.up * _jumpForce * _gravity, ForceMode.Impulse);
+
+            _rb.velocity = Vector3.up * _jumpForce;
+            //_rb.AddForce(transform.up * _jumpForce, ForceMode.Force);
+            //_rb.useGravity = false;
+            //_rb.velocity = new Vector3(_rb.velocity.x, 0, _rb.velocity.z);
+            //DOVirtual.DelayedCall(1f, () =>
+            //{
+            //    _rb.useGravity = true;
+            //});
+
         }
 
     }
 
     private void Move()
     {
-        Vector3 forward = transform.forward;
-        float currentYVel = _rb.velocity.y;
-        Vector3 newVelocity = transform.forward * _moveSpeed;
-        newVelocity.y = currentYVel;
-        _rb.velocity = newVelocity;
+        //Vector3 forward = transform.forward;
+
+        transform.position += transform.forward * _moveSpeed * Time.deltaTime;
+        //Vector3 newVelocity = transform.forward * _moveSpeed;
+        //newVelocity.y = _rb.velocity.y;
+        //_rb.velocity = newVelocity;
         //_rb.velocity = transform.forward * _moveSpeed;
     }
 
-    private void Leap()
-    {
-        _rb.AddForce(transform.forward * airMoveSpeed, ForceMode.Force);
-    }
+    //private void Leap()
+    //{
+    //    if (allowLeap)
+    //    {
+    //        _rb.AddForce(transform.forward * airMoveSpeed, ForceMode.Force);
+    //    }
+
+    //}
     private bool IsGrounded()
     {
 
@@ -109,6 +152,12 @@ public class PlayerPhysicsController : MonoBehaviour
     private void CreateJumpParticle()
     {
         _jumpParticle.Play();
+    }
+
+    public void AutoJump()
+    {
+        _rb.AddForce(transform.up * _jumpForce, ForceMode.Impulse);
+
     }
 
 }
