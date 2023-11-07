@@ -53,13 +53,23 @@ public class PlayerMovementController : MonoBehaviour
 
 
         Move();
-
+        
 
         if (canJump)
         {
             JumpAction();
-            canJump = false;
+            
         }
+        if (_rigidbody.velocity.y > 0)
+        {
+            _rigidbody.velocity += Vector3.up * Physics.gravity.y * (_lowJumpMultiplier - 1) * Time.deltaTime;
+        }
+
+        else
+        {
+            _rigidbody.velocity += Vector3.up * Physics.gravity.y * (_fallMultiplier - 1) * Time.deltaTime;
+        }
+        canJump = false;
 
     }
 
@@ -92,14 +102,6 @@ public class PlayerMovementController : MonoBehaviour
         _rigidbody.velocity += velocity;
         _jumpSound.Play();
         CreateJumpParticle();
-        if (_rigidbody.velocity.y > 0)
-        {
-            _rigidbody.velocity += Vector3.up * Physics.gravity.y * (_lowJumpMultiplier - 1) * Time.deltaTime;
-        }
-
-        if (_rigidbody.velocity.y < 0)
-        {
-            _rigidbody.velocity += Vector3.up * Physics.gravity.y * (_fallMultiplier - 1) * Time.deltaTime;
-        }
+       
     }
 }
