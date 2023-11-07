@@ -136,6 +136,8 @@ Material:
     - _Glossiness: 0.5
     - _GlossinessSource: 0
     - _GlossyReflections: 1
+    - _HorizonLineContribution: 0.25
+    - _HorizonLineExponent: 4
     - _Lumin: 0.1
     - _MaxLight: 1
     - _Metallic: 0.5
@@ -143,6 +145,7 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Offset: 0
+    - _OtlWidth: 1
     - _Parallax: 0.02
     - _QueueOffset: 0
     - _ReceiveShadows: 1
@@ -153,6 +156,7 @@ Material:
     - _ShnOverlap: 0
     - _ShnRange: 0.15
     - _ShnSmooth: 0
+    - _SkyGradientExponent: 2.5
     - _Smoothness: 0.5
     - _SmoothnessSource: 0
     - _SmoothnessTextureChannel: 0
@@ -162,6 +166,10 @@ Material:
     - _SrcBlendAlpha: 1
     - _Steps: 3
     - _StpSmooth: 1
+    - _SunDiscExponent: 125000
+    - _SunDiscMultiplier: 25
+    - _SunHaloContribution: 0.75
+    - _SunHaloExponent: 125
     - _Surface: 0
     - _UVSec: 0
     - _WorkflowMode: 1
@@ -171,7 +179,13 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
+    - _HorizonLineColor: {r: 0.9044118, g: 0.8872592, b: 0.7913603, a: 1}
+    - _OtlColor: {r: 0, g: 0, b: 0, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
     - _ShnColor: {r: 1, g: 1, b: 0, a: 1}
+    - _SkyGradientBottom: {r: 0.764706, g: 0.8156863, b: 0.8509805, a: 1}
+    - _SkyGradientTop: {r: 0.172549, g: 0.5686274, b: 0.6941177, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
+    - _SunDiscColor: {r: 1, g: 1, b: 1, a: 1}
+    - _SunHaloColor: {r: 0.8970588, g: 0.7760561, b: 0.6661981, a: 1}
   m_BuildTextureStacks: []
