@@ -1,14 +1,15 @@
 using UnityEngine;
+using DG.Tweening;
 
 public class PlayerTriggers : MonoBehaviour
 {
     public WinLoseCondition winLoseCondition;
-    public GameOverScreen gameOverScreen;
+    public GameOverScreen gameOverScreen;    
     public bool isDead;
 
     void Start()
     {
-
+        
     }
     void Update()
     {
