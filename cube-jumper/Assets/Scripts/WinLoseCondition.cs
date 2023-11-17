@@ -8,6 +8,7 @@ public class WinLoseCondition : MonoBehaviour
 {
     public GameOverScreen gameOver;
     private bool gameEnded;
+    
 
     public void WinLevel()
     {
@@ -23,9 +24,12 @@ public class WinLoseCondition : MonoBehaviour
     {
         if (!gameEnded)
         {
+
             Debug.Log("You Lose..");
             gameOver.GameOver();
             gameEnded = true;
+
         }
     }
+
 }

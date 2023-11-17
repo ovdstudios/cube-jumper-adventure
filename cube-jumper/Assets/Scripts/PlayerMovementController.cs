@@ -1,5 +1,6 @@
 using UnityEngine;
 using DG.Tweening;
+using Cinemachine;
 public class PlayerMovementController : MonoBehaviour
 {
     [SerializeField] private Rigidbody _rigidbody;
@@ -12,6 +13,11 @@ public class PlayerMovementController : MonoBehaviour
     [SerializeField] LayerMask _groundLayer;
     [SerializeField] ParticleSystem _jumpParticle;
     [SerializeField] AudioSource _jumpSound;
+   
+    [SerializeField] CinemachineVirtualCamera cam;
+  
+    
+    
     PlayerTriggers playerTrigger;
 
   
@@ -19,8 +25,10 @@ public class PlayerMovementController : MonoBehaviour
     private void Awake()
     {
         
-        playerTrigger = GetComponent<PlayerTriggers>();
+        playerTrigger = GetComponent<PlayerTriggers>();       
         DOTween.Init(recycleAllByDefault: true);
+       
+        
     }
 
     private void Update()
@@ -32,28 +40,30 @@ public class PlayerMovementController : MonoBehaviour
             canJump = true;
         }
 
-        if (!playerTrigger.isDead)
+        if (transform.position.y < 10)
         {
-            Move();
-           
+            cam.enabled = false;
         }
         else
         {
-            _rigidbody.velocity = Vector3.zero;
+            return;
         }
+
 
     }
 
     private void FixedUpdate()
     {
-        //Vector3 newVelocity = transform.forward * _moveSpeed;
-        //newVelocity.y = _rigidbody.velocity.y;
-        //_rigidbody.velocity = newVelocity;
-        //_rigidbody.velocity = transform.forward * _moveSpeed;
+       
+        if (!playerTrigger.isDead) 
+        {
+            Move();
 
-
-        Move();
-        
+        }
+        else
+        {
+            _rigidbody.velocity = Vector3.zero;
+        }
 
         if (canJump)
         {
@@ -70,6 +80,8 @@ public class PlayerMovementController : MonoBehaviour
             _rigidbody.velocity += Vector3.up * Physics.gravity.y * (_fallMultiplier - 1) * Time.deltaTime;
         }
         canJump = false;
+
+        
 
     }
 
@@ -100,7 +112,11 @@ public class PlayerMovementController : MonoBehaviour
     {
         Vector3 velocity = Vector3.up * _jumpPower;
         _rigidbody.velocity += velocity;
-        _jumpSound.Play();
+        if(_jumpSound != null)
+        {
+            _jumpSound.Play(); 
+        }
+        
         CreateJumpParticle();
        
     }

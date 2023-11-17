@@ -51,7 +51,7 @@ public class TextGlowOnHover : MonoBehaviour, IPointerEnterHandler, IPointerExit
         {
             currentGlowPower = Mathf.Lerp(startValue, targetValue, elapsedTime / duration);
             textMaterial.SetFloat(ShaderUtilities.ID_GlowPower, currentGlowPower);
-            elapsedTime += Time.deltaTime;
+            elapsedTime += Time.unscaledDeltaTime;
             yield return null;
         }
 
