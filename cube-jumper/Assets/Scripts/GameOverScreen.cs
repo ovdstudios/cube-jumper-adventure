@@ -3,7 +3,11 @@ using UnityEngine.SceneManagement;
 
 public class GameOverScreen : MonoBehaviour
 {
+    
     public GameObject gameOverUI;
+    [SerializeField] StopMusic stopmusic;
+    [SerializeField] PlayFailMusic playfailmusic;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +21,10 @@ public class GameOverScreen : MonoBehaviour
     }
     public void GameOver()
     {
-        gameOverUI.gameObject.SetActive(true);
+        playfailmusic.FailSound();
+        gameOverUI.gameObject.SetActive(true);      
+        stopmusic.StopMusicOnFail();
+        
     }
     public void Restart()
     {

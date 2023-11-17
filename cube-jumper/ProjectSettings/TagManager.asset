@@ -9,6 +9,7 @@ TagManager:
   - RotatorLeft
   - RotatorRight
   - BaseFailGround
+  - SoundManager
   layers:
   - Default
   - TransparentFX

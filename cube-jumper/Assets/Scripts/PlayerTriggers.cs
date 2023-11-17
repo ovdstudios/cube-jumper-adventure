@@ -1,11 +1,14 @@
 using UnityEngine;
-using DG.Tweening;
+using Cinemachine;
+using Unity.VisualScripting;
 
 public class PlayerTriggers : MonoBehaviour
 {
     public WinLoseCondition winLoseCondition;
     public GameOverScreen gameOverScreen;    
     public bool isDead;
+   
+    
 
     void Start()
     {
@@ -13,26 +16,32 @@ public class PlayerTriggers : MonoBehaviour
     }
     void Update()
     {
-
+        
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("BaseFailGround"))
         {
-            isDead = true;
+            isDead = true;            
             winLoseCondition.LoseLevel();
 
+
         }
+        
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.collider.CompareTag("Obstacle"))
         {
-            isDead = true;
+
+            isDead = true;           
             winLoseCondition.LoseLevel();
 
         }
     }
+
+   
+
 }
